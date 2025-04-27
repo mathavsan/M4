@@ -10,10 +10,20 @@ To write a C Program to perform the basic left shift operation for 44 integer nu
 5.	Stop the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
 
+int main() {
+    int a = 44, b = 3, result;
+    result = a << b;
+    printf("Result of 44 << 3 is %d\n", result);
+    return 0;
+}
+```
 ## OUTPUT
-
-
+```
+Result of 44 << 3 is 352
+```
 
 
 
@@ -47,10 +57,30 @@ Write a C Program to check whether the two numbers are equal or not using simple
 5.	Stop the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
 
+int main() {
+    int num1, num2;
+    printf("Enter two numbers:\n");
+    scanf("%d%d", &num1, &num2);
+
+    if (num1 == num2) {
+        printf("Both numbers are equal.\n");
+    } else {
+        printf("Both numbers are not equal.\n");
+    }
+    return 0;
+}
+```
 
 ## OUTPUT
-           
+```
+Enter two numbers:
+25
+25
+Both numbers are equal.
+```      
 ## RESULT
 
 Thus the program to check whether the two numbers are equal or not using simple if statement has been executed successfully
@@ -70,9 +100,28 @@ Write a C Program to convert the given string into lowercase.
 5.	Stop the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
+#include <ctype.h>
 
+int main() {
+    char str[100];
+    printf("Enter a string: ");
+    scanf("%s", str);
+
+    for (int i = 0; str[i] != '\0'; i++) {
+        str[i] = tolower(str[i]);
+    }
+
+    printf("Lowercase String: %s\n", str);
+    return 0;
+}
+```
 ## OUTPUT
-
+```
+Enter a string: HeLLo
+Lowercase String: hello
+```
 
 
 
@@ -95,9 +144,31 @@ Write a C Program to count the total number of words in a given string using do 
 6.	Stop the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
 
+int main() {
+    char str[100];
+    int i = 0, count = 1;
+    printf("Enter a string: ");
+    scanf(" %[^\n]", str);
+
+    do {
+        if (str[i] == ' ' && str[i+1] != ' ' && str[i+1] != '\0') {
+            count++;
+        }
+        i++;
+    } while (str[i] != '\0');
+
+    printf("Total number of words: %d\n", count);
+    return 0;
+}
+```
 ## OUTPUT
-
+```
+Enter a string: Hello World Program
+Total number of words: 3
+```
 
 
 
@@ -129,10 +200,42 @@ Step 7: After the loop, check the value of flag:
 Step 8: End the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
 
+int main() {
+    char c1[100], c2[100];
+    int i = 0, flag = 0;
+
+    printf("Enter first string: ");
+    scanf(" %[^\n]", c1);
+
+    printf("Enter second string: ");
+    scanf(" %[^\n]", c2);
+
+    while (c1[i] != '\0' || c2[i] != '\0') {
+        if (c1[i] != c2[i]) {
+            flag = 1;
+            break;
+        }
+        i++;
+    }
+
+    if (flag == 0) {
+        printf("Strings are same.\n");
+    } else {
+        printf("Strings are not same.\n");
+    }
+    return 0;
+}
+```
 
 ## OUTPUT
- 
+ ```
+Enter first string: Hello
+Enter second string: Hello
+Strings are same.
+```
 
 ## RESULT
 Thus the C Program to compare two strings without using strcmp() has been executed successfully.
